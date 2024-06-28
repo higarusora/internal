@@ -1,0 +1,30 @@
+class Movement:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def move_up(self, distance=1):
+        self.y += distance
+
+    def move_down(self, distance=1):
+        self.y -= distance
+
+    def move_left(self, distance=1):
+        self.x -= distance
+
+    def move_right(self, distance=1):
+        self.x += distance
+
+    def jump(self, x_distance=0, y_distance=0):
+        self.x += x_distance
+        self.y += y_distance
+
+    def get_position(self):
+        return self.x, self.y
+
+movement = Movement()
+movement.move_up(2)
+movement.move_right(3)
+movement.jump(5, 5)
+position = movement.get_position()
+print(position)
