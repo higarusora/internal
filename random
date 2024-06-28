@@ -1,0 +1,30 @@
+import random
+import string
+
+def character_guessing_game():
+    alphabet = string.ascii_lowercase
+    secret_char = random.choice(alphabet)
+    attempts = 5
+
+    print("Welcome to the Character Guessing Game!")
+    print("You have 5 attempts to guess the secret character (a-z).")
+
+    while attempts > 0:
+        guess = input("Enter your guess: ").lower()
+
+        if len(guess) != 1 or guess not in alphabet:
+            print("Invalid input. Please enter a single letter from a-z.")
+            continue
+
+        if guess == secret_char:
+            print("Congratulations! You guessed the correct character!")
+            break
+        else:
+            attempts -= 1
+            print(f"Wrong guess. You have {attempts} attempts left.")
+
+        if attempts == 0:
+            print(f"Game over! The secret character was '{secret_char}'.")
+
+if __name__ == "__main__":
+    character_guessing_game()
